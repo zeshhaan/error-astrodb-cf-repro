@@ -1,0 +1,171 @@
+diff --git a/package.json b/package.json
+index 7a035a2cbb0345d2efd17036b0b231493cfdc1b4..d180a4d2c8bef280bffd376993757d9512e7dba4 100644
+--- a/package.json
++++ b/package.json
+@@ -1,55 +1,53 @@
+ {
+-  "name": "@astrojs/db",
+-  "version": "0.14.0-beta.1",
++  "author": "withastro",
++  "bugs": "https://github.com/withastro/astro/issues",
++  "dependencies": {
++    "@astrojs/studio": "0.1.1",
++    "@libsql/client": "^0.12.0",
++    "async-listen": "^3.0.1",
++    "deep-diff": "^1.0.2",
++    "drizzle-orm": "^0.31.2",
++    "github-slugger": "^2.0.0",
++    "kleur": "^4.1.5",
++    "nanoid": "^5.0.7",
++    "open": "^10.1.0",
++    "ora": "^8.1.0",
++    "prompts": "^2.4.2",
++    "strip-ansi": "^7.1.0",
++    "yargs-parser": "^21.1.1",
++    "zod": "^3.23.8"
++  },
+   "description": "Add libSQL and Astro Studio support to your Astro site",
+-  "license": "MIT",
+-  "repository": {
+-    "type": "git",
+-    "url": "https://github.com/withastro/astro.git",
+-    "directory": "packages/db"
++  "devDependencies": {
++    "@types/deep-diff": "^1.0.5",
++    "@types/prompts": "^2.4.9",
++    "@types/yargs-parser": "^21.0.3",
++    "astro": "5.0.0-beta.1",
++    "astro-scripts": "0.0.14",
++    "cheerio": "1.0.0",
++    "typescript": "^5.5.4",
++    "vite": "^5.4.3"
+   },
+-  "bugs": "https://github.com/withastro/astro/issues",
+-  "homepage": "https://docs.astro.build/en/guides/integrations-guide/db/",
+-  "type": "module",
+-  "author": "withastro",
+-  "types": "./index.d.ts",
+-  "main": "./dist/index.js",
+   "exports": {
+     ".": {
+-      "types": "./index.d.ts",
+-      "default": "./dist/index.js"
+-    },
+-    "./utils": {
+-      "types": "./dist/utils.d.ts",
+-      "default": "./dist/utils.js"
+-    },
+-    "./runtime": {
+-      "types": "./dist/runtime/index.d.ts",
+-      "default": "./dist/runtime/index.js"
++      "default": "./dist/index.js",
++      "types": "./index.d.ts"
+     },
+     "./dist/runtime/virtual.js": {
+       "default": "./dist/runtime/virtual.js"
+     },
++    "./package.json": "./package.json",
++    "./runtime": {
++      "default": "./dist/runtime/index.js",
++      "types": "./dist/runtime/index.d.ts"
++    },
+     "./types": {
+-      "types": "./dist/core/types.d.ts",
+-      "default": "./dist/core/types.js"
++      "default": "./dist/core/types.js",
++      "types": "./dist/core/types.d.ts"
+     },
+-    "./package.json": "./package.json"
+-  },
+-  "typesVersions": {
+-    "*": {
+-      ".": [
+-        "./index.d.ts"
+-      ],
+-      "types": [
+-        "./dist/types.d.ts"
+-      ],
+-      "utils": [
+-        "./dist/utils.d.ts"
+-      ],
+-      "runtime": [
+-        "./dist/runtime/index.d.ts"
+-      ]
++    "./utils": {
++      "default": "./dist/utils.js",
++      "types": "./dist/utils.d.ts"
+     }
+   },
+   "files": [
+@@ -57,41 +55,43 @@
+     "virtual.d.ts",
+     "dist"
+   ],
++  "homepage": "https://docs.astro.build/en/guides/integrations-guide/db/",
+   "keywords": [
+     "withastro",
+     "astro-integration"
+   ],
+-  "dependencies": {
+-    "@libsql/client": "^0.10.0",
+-    "async-listen": "^3.0.1",
+-    "deep-diff": "^1.0.2",
+-    "drizzle-orm": "^0.31.2",
+-    "github-slugger": "^2.0.0",
+-    "kleur": "^4.1.5",
+-    "nanoid": "^5.0.7",
+-    "open": "^10.1.0",
+-    "ora": "^8.1.0",
+-    "prompts": "^2.4.2",
+-    "strip-ansi": "^7.1.0",
+-    "yargs-parser": "^21.1.1",
+-    "zod": "^3.23.8",
+-    "@astrojs/studio": "0.1.1"
+-  },
+-  "devDependencies": {
+-    "@types/deep-diff": "^1.0.5",
+-    "@types/prompts": "^2.4.9",
+-    "@types/yargs-parser": "^21.0.3",
+-    "cheerio": "1.0.0",
+-    "typescript": "^5.5.4",
+-    "vite": "^5.4.3",
+-    "astro": "5.0.0-beta.1",
+-    "astro-scripts": "0.0.14"
++  "license": "MIT",
++  "main": "./dist/index.js",
++  "name": "@astrojs/db",
++  "repository": {
++    "directory": "packages/db",
++    "type": "git",
++    "url": "https://github.com/withastro/astro.git"
+   },
+   "scripts": {
+-    "types:virtual": "tsc -p ./tsconfig.virtual.json",
+     "build": "astro-scripts build \"src/**/*.ts\" && tsc && pnpm types:virtual",
+     "build:ci": "astro-scripts build \"src/**/*.ts\"",
+     "dev": "astro-scripts dev \"src/**/*.ts\"",
+-    "test": "astro-scripts test \"test/**/*.test.js\""
+-  }
++    "test": "astro-scripts test \"test/**/*.test.js\"",
++    "types:virtual": "tsc -p ./tsconfig.virtual.json"
++  },
++  "type": "module",
++  "types": "./index.d.ts",
++  "typesVersions": {
++    "*": {
++      ".": [
++        "./index.d.ts"
++      ],
++      "runtime": [
++        "./dist/runtime/index.d.ts"
++      ],
++      "types": [
++        "./dist/types.d.ts"
++      ],
++      "utils": [
++        "./dist/utils.d.ts"
++      ]
++    }
++  },
++  "version": "0.14.0-beta.1"
+ }

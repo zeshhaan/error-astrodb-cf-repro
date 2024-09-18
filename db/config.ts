@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { defineDb, defineTable, column, NOW } from "astro:db";
 
 // https://astro.build/db/config

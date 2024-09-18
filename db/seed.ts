@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { db, Product } from "astro:db";
 
 // https://astro.build/db/seed

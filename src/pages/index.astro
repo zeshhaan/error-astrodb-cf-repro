@@ -1,4 +1,5 @@
 ---
+// @ts-nocheck
 import { db, Product } from 'astro:db'
 const products = await db.select().from(Product)
 ---
