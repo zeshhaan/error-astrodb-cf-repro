@@ -11,5 +11,3 @@ run `bun astro dev` to run on local
 run `bun astro build` to build for production
 
 run `bun wrangler pages dev` to preview
-
-alternatively, checkout `package.json` file
